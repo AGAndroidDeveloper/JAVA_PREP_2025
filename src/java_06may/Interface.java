@@ -1,21 +1,62 @@
 package java_06may;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Interface {
     public static void main(String[] args) {
 //        groceryList();
 //        Collections.synchronizedList(List.of(1,2,3,4));
-        linkedListExample();
+        // linkedListExample();
         //arrayDequeImplExample();
         //  queueImplExample();
-        linkedListExampleStringBased();
+       linkedListExampleStringBased();
+       // stackExample();
+    }
 
+    private static void stackExample() {
+        var myStack = new Stack<Integer>();
+        baseAddElementIntoList(myStack);
+        System.out.println(myStack);
+        myStack.pop();
+        myStack.add(113);
+        System.out.println(myStack.peek());
+        System.out.println(myStack);
+    }
+
+    private static void baseAddElementIntoList(List<Integer> myList) {
+        for (int i = 0; i <10; i++) {
+            double item = i + Math.random()*100;
+            //System.out.println("item to be added "+item);
+            myList.add((int) item);
+        }
     }
 
     private static void linkedListExampleStringBased() {
-        var myLinkedList = new LinkedList<String>(List.of("apple","banana","mango","dragonfruit",));
+        var myLinkedList = new LinkedList<>(List.of("apple", "banana", "mango", "dragon fruit", "orange", "grapes", "pineapple"));
+        myLinkedList.add("strawberry");
+        System.out.println(myLinkedList);
+        Collections.sort(myLinkedList);
+        System.out.println("sorted list :: " + myLinkedList);
+        // queue method implement
+        System.out.println("peak element  :: " + myLinkedList.peek());
+        myLinkedList.poll(); // apple
+        System.out.println("poll :: " + myLinkedList);
+        myLinkedList.pop();  // banana
+        System.out.println("pop  :: " + myLinkedList);
+        myLinkedList.addFirst("hey");
+        System.out.println(myLinkedList);
+        myLinkedList.addLast("ok");
+        System.out.println(myLinkedList);
+        System.out.println("element " + myLinkedList.element());
+        System.out.println(myLinkedList);
 
+//        Consumer<String> myConsumer = s -> System.out.printf("item get from linkedList is =>  %s\n",s);
+//        myLinkedList.iterator().forEachRemaining(myConsumer);
+
+        for (String s : myLinkedList) {
+            System.out.println(s);
+        }
     }
 
     private static void arrayDequeImplExample() {
@@ -64,6 +105,13 @@ public class Interface {
         System.out.println(mylinkedList);
         // Collections.sort(mylinkedList);
 
+        sortList(mylinkedList);
+        System.out.printf("last index of item %d is : %d", 300, mylinkedList.lastIndexOf(300));
+        System.out.println();
+        System.out.println("sorted list " + mylinkedList);
+    }
+
+    private static void sortList(List<Integer> mylinkedList) {
         Comparator<Integer> myc = (o1, o2) -> {
             if (o1 < o2) {
                 return -1;
@@ -72,9 +120,6 @@ public class Interface {
             }
         };
         mylinkedList.sort(myc);
-        System.out.printf("last index of item %d is : %d", 300, mylinkedList.lastIndexOf(300));
-        System.out.println();
-        System.out.println("sorted list " + mylinkedList);
     }
 
     public static void groceryList() {
