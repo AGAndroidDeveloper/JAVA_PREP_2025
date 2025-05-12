@@ -10,8 +10,29 @@ public class Interface {
         // linkedListExample();
         //arrayDequeImplExample();
         //  queueImplExample();
-       linkedListExampleStringBased();
-       // stackExample();
+        //linkedListExampleStringBased();
+        // stackExample();
+        linkedListExample10May();
+    }
+
+    private static void linkedListExample10May() {
+        List<Integer> myL = new LinkedList<>();
+        myL.add(1);
+        myL.add(12);
+        myL.add(2);
+        myL.add(24);
+        myL.add(3);
+        for (int i = 0; i < 10; i++) {
+            int random = (int) (Math.random() * 100 * i);
+            // System.out.print("item "+random+" ");
+            myL.add(random);
+        }
+        System.out.println("original list: " + myL);
+        System.out.println(myL.removeAll(List.of(1, 2, 3)));
+        System.out.println("my created linked list : " + myL);
+        ListIterator<Integer> m = myL.listIterator();
+        //System.out.println(m.ne);
+
     }
 
     private static void stackExample() {
@@ -25,8 +46,8 @@ public class Interface {
     }
 
     private static void baseAddElementIntoList(List<Integer> myList) {
-        for (int i = 0; i <10; i++) {
-            double item = i + Math.random()*100;
+        for (int i = 0; i < 10; i++) {
+            double item = i + Math.random() * 100;
             //System.out.println("item to be added "+item);
             myList.add((int) item);
         }
