@@ -13,7 +13,6 @@ public class Impl {
         // findVowelsAndConsonants();
         Integer[] arr = {12, 34, 67, 83, 2, 40, 40, 345, 345};
         // findSecondHighestNumber(arr);
-
         System.out.print(calculatePrimeNumber(5) + " ");
 
 //        WeekDays m = WeekDays.FRIDAY;
@@ -22,6 +21,7 @@ public class Impl {
 //
 //        }
         //findDays(m);
+
 
     }
 

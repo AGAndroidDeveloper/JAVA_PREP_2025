@@ -1,0 +1,5 @@
+class CoroutineExample {
+    fun main(){
+
+    }
+}
