@@ -6,9 +6,9 @@ import java.util.stream.Stream;
 
 public class ParallelStream {
     public static void main(String[] args) {
-        List<Integer> mList = Stream.iterate(1,x->x+1).limit(20000).toList();
+        List<Integer> mList = Stream.iterate(1, x -> x + 1).limit(20000).toList();
 
-      //  System.out.println(factorial(6));
+        //  System.out.println(factorial(6));
         ;
 
         // using sequencial stream
@@ -26,13 +26,14 @@ public class ParallelStream {
 //        System.out.println("time taken using ParallelStream stream " + (endTime - startTime) + " ms");
 //        System.out.println("finalFactorialList "+finalFactorialList);
 
-        Function<Integer,Integer> mFunction1  = integer -> integer*integer;
-        Function<Integer,Integer> mFunction2 = integer -> integer+integer;
-        System.out.println( mFunction1.apply(5));;
-        System.out.println( mFunction2.apply(5));;
+        Function<Integer, Integer> mFunction1 = integer -> integer * integer;
+        Function<Integer, Integer> mFunction2 = integer -> integer + integer;
+        System.out.println(mFunction1.apply(5));
+        ;
+        System.out.println(mFunction2.apply(5));
 
-
-
+        System.out.println(mFunction1.andThen(mFunction2).apply(4));
+        System.out.println(mFunction1.compose(mFunction2).apply(6));
 
 
     }
